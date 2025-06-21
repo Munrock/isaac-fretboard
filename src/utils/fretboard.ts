@@ -33,18 +33,18 @@ export const fretboardMap = [
     }
 ];
 
-export const triadShapes = {
+export const chordShapes = {
     major: {
         String6: {
             G: [0, -1, -3, -3, -3, 0],
             E: [0, 2, 2, 1, 0, 0,],
         },
         String5: {
-            C: [-1, 3, 2, 0, 1, -1],
-            A: [-1, 0, 2, 2, 2, -1],
+            C: [null, 0, -1, -3, -2, -1],
+            A: [null, 0, 2, 2, 2, 0],
         },
         String4: {
-            D: [-1, 0, 2, 3, 2, -1],
+            D: [null, null, 0, 2, 3, 2],
         },
     }
 }
