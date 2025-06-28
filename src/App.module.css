@@ -22,10 +22,18 @@ background: #34350b;
 }
 
 .mainPanel {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   max-height: calc(100vh - 4em);
 height: 80vh;
   overflow:auto;
 background: #093611;
 }
+
+.mainChordDisplay {
+  font-size: 35vh;
+}
+

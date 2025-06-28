@@ -11,7 +11,9 @@ function App() {
 
       </div>
       <div className={styles.mainPanel}>
-
+        <div className={styles.mainChordDisplay}>
+          Amaj<sup>7</sup>
+        </div>
       </div>
       <div className={styles.bottomRow}>
 
