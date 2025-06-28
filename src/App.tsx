@@ -1,5 +1,5 @@
 
-import './App.css'
+import styles from './App.module.css';
 
 
 function App() {
@@ -7,8 +7,15 @@ function App() {
 
   return (
     <>
-      
-      
+      <div className={styles.topRow}>
+
+      </div>
+      <div className={styles.mainPanel}>
+
+      </div>
+      <div className={styles.bottomRow}>
+
+      </div>
     </>
   )
 }
