@@ -30,7 +30,7 @@
   max-height: calc(100% / 5);
   min-width: 2em;
   aspect-ratio: 1/2;
-  border-top: solid 2px #ffffff;
+  border-bottom: solid 2px #ffffff;
   color: red;
   position: relative;
   display: flex;
