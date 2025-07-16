@@ -2,11 +2,15 @@ import React from "react";
 
 import styles from "./Fretboard.module.css";
 import Fret from "./Fret";
+import type { FretNumber } from "./Board";
 
 interface GuitarStringProps {
   tuning: string;
   lowFret: number;
   highFret: number;
+  fretted: FretNumber;
+  stringNumber: keyof {6:any,5:any,4:any,3:any,2:any,1:any};
+  onFretChange: (stringNumber: keyof {6:any,5:any,4:any,3:any,2:any,1:any}, fretNumber: FretNumber) => void;
   top?: boolean;
   bottom?: boolean;
 }
@@ -15,6 +19,9 @@ const GuitarString: React.FC<GuitarStringProps> = ({
   tuning,
   lowFret,
   highFret,
+  fretted,
+  stringNumber,
+  onFretChange,
   top = false,
   bottom = false,
 }) => {
@@ -41,11 +48,11 @@ const GuitarString: React.FC<GuitarStringProps> = ({
         fretNumber={fret}
         fretNote={note}
         size={highFret - lowFret}
+        fretted={fretted === fret}
+        onFretClick={() => onFretChange(stringNumber, fret as FretNumber)}
       />
     );
   }
-
-  console.log(`${tuning} String:`);
 
   return <div className={styles.stringColumn}>{frets}</div>;
 };
