@@ -1,0 +1,25 @@
+.fretboard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100vw;
+  max-height: 100vh;
+  aspect-ratio: 3 / 5;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #e80f0f;
+}
+.stringColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  border: 1px solid #0fe81e;
+}
+.defaultFret {
+  max-width: calc(100% / 6);
+  max-height: calc(100% / 5);
+  min-width: 2em;
+  aspect-ratio: 1/2;
+
+  border: 1px solid #05fcfc;
+}
