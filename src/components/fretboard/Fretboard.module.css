@@ -59,6 +59,11 @@
   z-index: 0;
 }
 
+.fretReference {
+  max-width: 10%;
+  margin-right: 0.3em;
+}
+
 .fretReferenceIndicator {
   max-width: calc(100% / 6);
   max-height: calc(100% / 5);
@@ -68,4 +73,25 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  cursor: pointer;
+  
+}
+
+.fretReferenceStackedButtons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.fretReferenceStackedButtonsButton {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1em;
 }
