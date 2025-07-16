@@ -7,28 +7,20 @@ interface GuitarStringProps {
   tuning: string;
   lowFret: number;
   highFret: number;
+  top?: boolean;
+  bottom?: boolean;
 }
 
 const GuitarString: React.FC<GuitarStringProps> = ({
   tuning,
   lowFret,
   highFret,
+  top = false,
+  bottom = false,
 }) => {
   // Chromatic scale for one octave
-  const noteSequence = [
-    "E",
-    "F",
-    "F#",
-    "G",
-    "Ab",
-    "A",
-    "Bb",
-    "B",
-    "C",
-    "C#",
-    "D",
-    "Eb",
-  ];
+  // prettier-ignore
+  const noteSequence = ["E","F","F#","G","Ab","A","Bb","B","C","C#","D","Eb",];
 
   // Find the index of the tuning note
   const startIdx = noteSequence.indexOf(tuning);
@@ -52,6 +44,8 @@ const GuitarString: React.FC<GuitarStringProps> = ({
       />
     );
   }
+
+  console.log(`${tuning} String:`);
 
   return <div className={styles.stringColumn}>{frets}</div>;
 };
