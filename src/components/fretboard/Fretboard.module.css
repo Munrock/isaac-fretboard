@@ -13,7 +13,7 @@
 .fretboard {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   max-width: 100vw;
   max-height: 100vh;
   aspect-ratio: 3 / 5;
@@ -30,7 +30,8 @@
   max-height: calc(100% / 5);
   min-width: 2em;
   aspect-ratio: 1/2;
-  border-bottom: solid 2px #ffffff;
+  border-bottom: solid 1px #ffffff;
+  border-top: solid 1px #ffffff;
   color: red;
   position: relative;
   display: flex;
@@ -56,4 +57,15 @@
   transform: translateX(-50%);
   pointer-events: none;
   z-index: 0;
+}
+
+.fretReference {
+  max-width: calc(100% / 6);
+  max-height: calc(100% / 5);
+  min-width: 2em;
+  aspect-ratio: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

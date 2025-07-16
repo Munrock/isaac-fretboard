@@ -26,6 +26,9 @@ const Board: React.FC<BoardInterface> = ({
 
   return (
     <div className={styles.fretboard}>
+      <div className={styles.fretReference}>
+        {lowFret === 0 ? "O" : lowFret}
+      </div>
       {[6, 5, 4, 3, 2, 1].map((gs) => (
         <GuitarString
           key={gs}
