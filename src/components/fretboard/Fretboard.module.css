@@ -1,3 +1,15 @@
+.fretNote {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8em;
+  height: 1.8em;
+  font-weight: bold;
+}
 .fretboard {
   display: flex;
   flex-direction: row;
@@ -7,19 +19,41 @@
   aspect-ratio: 3 / 5;
   background-color: #000000;
   color: #ffffff;
-  border: 1px solid #e80f0f;
 }
 .stringColumn {
   display: flex;
   flex-direction: column;
   align-items: top;
-  border: 1px solid #0fe81e;
 }
 .defaultFret {
   max-width: calc(100% / 6);
   max-height: calc(100% / 5);
   min-width: 2em;
   aspect-ratio: 1/2;
+  border-top: solid 2px #ffffff;
+  color: red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-  border: 1px solid #05fcfc;
+.defaultFret span {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.defaultFret::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #fff;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
 }
