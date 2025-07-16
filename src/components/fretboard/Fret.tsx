@@ -1,13 +1,14 @@
 import React from "react";
 
 import styles from "./Fretboard.module.css";
+import type { FretNumber } from "./FretboardTypes";
 
 interface FretProps {
-  fretNumber: number;
+  fretNumber: FretNumber;
   fretNote: string;
   size: number;
   fretted?: boolean;
-  onFretClick?: (fretNumber: number, fretted: boolean) => void;
+  onFretClick?: (fretNumber: FretNumber, fretted: boolean) => void;
 }
 
 const Fret: React.FC<FretProps> = ({

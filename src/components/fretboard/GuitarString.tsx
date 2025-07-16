@@ -2,19 +2,34 @@ import React from "react";
 
 import styles from "./Fretboard.module.css";
 import Fret from "./Fret";
-import type { FretNumber } from "./Board";
+import type { FretNumber, StringNumber } from "./FretboardTypes";
 
+/**
+ * Props for the GuitarString component.
+ * @property tuning - The open string note (e.g., "E", "A").
+ * @property lowFret - The lowest fret to render.
+ * @property highFret - The highest fret to render.
+ * @property fretted - The currently fretted fret number.
+ * @property stringNumber - The string number (1 = high E, 6 = low E).
+ * @property onFretChange - Callback when a fret is clicked.
+ * @property top - (Optional) If this is the topmost string.
+ * @property bottom - (Optional) If this is the bottommost string.
+ */
 interface GuitarStringProps {
   tuning: string;
   lowFret: number;
   highFret: number;
   fretted: FretNumber;
-  stringNumber: keyof {6:any,5:any,4:any,3:any,2:any,1:any};
-  onFretChange: (stringNumber: keyof {6:any,5:any,4:any,3:any,2:any,1:any}, fretNumber: FretNumber) => void;
+  stringNumber: StringNumber;
+  onFretChange: (stringNumber: StringNumber, fretNumber: FretNumber) => void;
   top?: boolean;
   bottom?: boolean;
 }
 
+/**
+ * Renders a single guitar string with its frets.
+ * Handles note calculation and fret click events.
+ */
 const GuitarString: React.FC<GuitarStringProps> = ({
   tuning,
   lowFret,
@@ -29,6 +44,8 @@ const GuitarString: React.FC<GuitarStringProps> = ({
   // prettier-ignore
   const noteSequence = ["E","F","F#","G","Ab","A","Bb","B","C","C#","D","Eb",];
 
+  const OCTAVE = 12;
+
   // Find the index of the tuning note
   const startIdx = noteSequence.indexOf(tuning);
   // Rotate the array so it starts with the tuning note
@@ -40,12 +57,12 @@ const GuitarString: React.FC<GuitarStringProps> = ({
   // Render frets from lowFret to highFret
   const frets = [];
   for (let fret = lowFret; fret <= highFret; fret++) {
-    // Notes repeat every 12 frets
-    const note = rotatedNotes[fret % 12];
+    // Notes repeat every OCTAVE frets
+    const note = rotatedNotes[fret % OCTAVE];
     frets.push(
       <Fret
-        key={fret}
-        fretNumber={fret}
+        key={`${stringNumber}-${fret}`}
+        fretNumber={fret as FretNumber}
         fretNote={note}
         size={highFret - lowFret}
         fretted={fretted === fret}
@@ -54,7 +71,7 @@ const GuitarString: React.FC<GuitarStringProps> = ({
     );
   }
 
-  return <div className={styles.stringColumn}>{frets}</div>;
+  return <div className={styles.guitarStringColumn}>{frets}</div>;
 };
 
 export default GuitarString;
