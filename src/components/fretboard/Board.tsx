@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./Fretboard.module.css";
 import GuitarString from "./GuitarString";
@@ -9,12 +9,24 @@ interface BoardInterface {
   highFret?: number;
 }
 
+type Note = "A" | "A#" | "Bb" | "B" | "C" | "C#" | "Db" | "D" | "D#" | "Eb" | "E" | "F" | "F#" | "Gb" | "G" | "G#" | "Ab";
+type Tuning = {6:Note, 5:Note, 4: Note, 3: Note, 2: Note, 1: Note};
+type FretNumber = "mute" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
+type Fretting = {6:FretNumber, 5:FretNumber, 4: FretNumber, 3: FretNumber, 2: FretNumber, 1: FretNumber};
+
+
+
+
+
+
+
 const Board: React.FC<BoardInterface> = ({
   overrideStrings = {},
   lowFret = 0,
   highFret = 5,
 }) => {
-  const strings: Record<number, string> = {
+
+  const strings: Tuning = {
     6: "E",
     5: "A",
     4: "D",
@@ -24,6 +36,8 @@ const Board: React.FC<BoardInterface> = ({
     ...overrideStrings,
   };
 
+  const [fretted, setFretted] = useState<Fretting>({6:"mute", 5: "mute",4:"mute",3:"mute",2:"mute",1:"mute"})
+
   return (
     <div className={styles.fretboard}>
       <div className={styles.fretReference}>
@@ -32,7 +46,7 @@ const Board: React.FC<BoardInterface> = ({
       {[6, 5, 4, 3, 2, 1].map((gs) => (
         <GuitarString
           key={gs}
-          tuning={strings[Number(gs)]}
+          tuning={strings[gs as keyof Tuning]}
           lowFret={lowFret}
           highFret={highFret}
         />
