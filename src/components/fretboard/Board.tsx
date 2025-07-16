@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import styles from "./Fretboard.module.css";
 import GuitarString from "./GuitarString";
+import FretReference from "./FretReference";
 import type { BoardInterface, Tuning, Fretting, FretNumber, StringNumber } from "./FretboardTypes";
 
 const Board: React.FC<BoardInterface> = ({
@@ -28,9 +29,7 @@ const Board: React.FC<BoardInterface> = ({
 
   return (
     <div className={styles.fretboard}>
-      <div className={styles.fretReference}>
-        {lowFret === 0 ? "O" : lowFret}
-      </div>
+      <FretReference lowFret={lowFret} highFret={highFret} />
       {[6, 5, 4, 3, 2, 1].map((gs) => (
         <GuitarString
           key={gs}
