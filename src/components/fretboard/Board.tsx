@@ -26,7 +26,7 @@ const Board: React.FC<BoardInterface> = ({
 
   return (
     <div className={styles.fretboard}>
-      {Object.keys(strings).map((gs) => (
+      {[6, 5, 4, 3, 2, 1].map((gs) => (
         <GuitarString
           key={gs}
           tuning={strings[Number(gs)]}
