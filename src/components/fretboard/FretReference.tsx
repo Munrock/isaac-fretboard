@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import styles from "./Fretboard.module.css";
 
 interface FretReferenceParams {
@@ -19,14 +19,17 @@ const FretReference: React.FC<FretReferenceParams> = ({
   fretsDecrease,
   fretsIncrease,
 }) => {
+
+console.log(highFret)
+
   const [showButtons, setShowButtons] = useState<boolean>(false);
   const toggleButtons = () => setShowButtons((prev) => !prev);
 
-  useEffect(() => {
-    if (!showButtons) return;
-    const timer = setTimeout(() => setShowButtons(false), 10000);
-    return () => clearTimeout(timer);
-  }, [showButtons]);
+  // useEffect(() => {
+  //   if (!showButtons) return;
+  //   const timer = setTimeout(() => setShowButtons(false), 10000);
+  //   return () => clearTimeout(timer);
+  // }, [showButtons]);
 
   return (
     <div className={styles.fretReference}>

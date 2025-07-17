@@ -40,6 +40,10 @@ const GuitarString: React.FC<GuitarStringProps> = ({
   top = false,
   bottom = false,
 }) => {
+
+
+console.log(top,bottom);
+
   // Chromatic scale for one octave
   // prettier-ignore
   const noteSequence = ["E","F","F#","G","Ab","A","Bb","B","C","C#","D","Eb",];
